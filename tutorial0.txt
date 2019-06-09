@@ -1,0 +1,2 @@
+cat myFile | sort
+sort < myFile

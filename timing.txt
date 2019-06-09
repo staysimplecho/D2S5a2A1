@@ -1,0 +1,25 @@
+﻿Input   Initial     Has     Number      Avg Time    Avg Time
+Size    Order       Dups    of Runs     for usel    for sort
+5000	random	    no	    3	        0.403	    0.002
+5000	sorted	    no	    3	        0.283	    0.001
+5000	reverse	    no	    3	        0.280	    0.001
+5000	random	    yes	    3	        0.400	    0.002
+5000	sorted	    yes	    3	        0.283	    0.001
+5000	reverse	    yes	    3	        0.283	    0.001
+10000	random	    no	    3	        1.623	    0.004
+10000	sorted	    no	    3	        1.127	    0.002
+10000	reverse	    no	    3	        1.130	    0.002
+10000	random	    yes	    3	        1.123	    0.004
+10000	sorted	    yes	    3	        1.123	    0.002
+10000	reverse	    yes	    3	        1.127	    0.002
+50000	random	    no	    3	        46.800	    0.020
+50000	sorted	    no	    3	        27.893	    0.010
+50000	reverse	    no	    3	        27.887	    0.010
+50000	random	    yes	    3	        46.247	    0.020
+50000	sorted	    yes	    3	        27.883	    0.010
+50000	reverse	    yes	    3	        27.887	    0.010
+
+It is easy to conclude that my usel algorithm has a time complexity of O(|L|^2) based on the function IntListInsertInOrder() with time complexity of O(|L|).
+O(|L|) was brought by the worst-case while loop which traversing the list.
+
+The Unix sort is much quicker than usel due to different complexity, it was not quite clear to deduce an O(n*log(n)) pattern from my data. I could give crazier number of inputs to clearift its time complexity.
