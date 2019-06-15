@@ -101,6 +101,7 @@ void IntListInsertInOrder (IntList L, int v)
 	// This is INCORRECT
 	//IntListInsert (L, v);
 	//when the linked list is empty
+	assert(IntListIsSorted(L)==true);
 	if (L->first == NULL){
 		IntListInsert(L,v);
 	}else{

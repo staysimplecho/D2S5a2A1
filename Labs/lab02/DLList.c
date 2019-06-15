@@ -138,7 +138,7 @@ bool validDLList (DLList L)
 
 	// check scanning forward through list
 	size_t count = 0;
-	for (DLListNode *curr = L->first; curr != NULL; curr = curr->next) {
+	for (DLListNode *curr = L->first; curr != NULL; curr = curr->next) { 
 		if (curr->prev != NULL && curr->prev->next != curr) {
 			fprintf (
 				stderr,
@@ -227,7 +227,33 @@ bool DLListMoveTo (DLList L, int i)
 void DLListBefore (DLList L, char *it)
 {
 	assert (L != NULL);
+	DLListNode * tmp;
+	tmp= newDLListNode(it);
+	//front
+	if (L->curr==L->first){
+		L->first = tmp;
+		tmp->prev = NULL;
+		tmp->next = L->curr;
+		L->curr->prev = tmp;
+		L->curr = tmp;
+		L->nitems ++;
+		return;
+	}
+	
+	//middle
+	//end
+	
+	L->curr->prev->next=tmp;
+	tmp->prev = L->curr->prev;
+	tmp->next = L->curr;//->next;
+	L->curr->next->prev = tmp;
+	L->curr = tmp;
+
+
+	
 	/// COMPLETE THIS FUNCTION
+	//finally add the size
+	L->nitems ++;
 }
 
 /** insert an item after current item
@@ -236,6 +262,27 @@ void DLListAfter (DLList L, char *it)
 {
 	assert (L != NULL);
 	/// COMPLETE THIS FUNCTION
+	
+	DLListNode * tmp;
+	tmp= newDLListNode(it);
+	//end
+	if(L->curr==L->last){
+		L->last = tmp;
+		L->curr->next = tmp;
+		tmp->prev = L->curr;
+		tmp->next = NULL;
+		L->curr = tmp;
+		L->nitems++;
+		return;
+	}
+	//front middle
+	L->curr->next->prev = tmp;
+	tmp->next = L->curr->next;
+	tmp->prev = L->curr;
+	L->curr->next = tmp;
+	L->curr = tmp;
+	L->nitems++;
+
 }
 
 /** delete current item
@@ -245,7 +292,38 @@ void DLListAfter (DLList L, char *it)
 void DLListDelete (DLList L)
 {
 	assert (L != NULL);
+	DLListNode * tmp;
 	/// COMPLETE THIS FUNCTION
+	//if only item
+	if(L->last==L->first){
+		L->first=L->first=L->curr=NULL;
+		L->nitems=0;
+		return;
+	}
+	if(L->curr==L->last){
+		tmp = L->last->prev;
+		freeDLListNode(L->curr);
+		tmp->next=NULL;
+		L->curr = tmp;
+		L->last = tmp;
+		L->nitems--;
+		return;
+	}
+	if(L->curr==L->first){
+		tmp = L->curr;
+		L->curr = L->curr->next;
+		L->curr->prev=NULL;
+		freeDLListNode(tmp);
+		L->first = L->curr;
+		L->nitems--;
+		return ;
+	}
+	tmp = L->curr->next;
+	L->curr->prev->next = L->curr->next;
+	L->curr->prev->next->prev = L->curr->prev;
+	freeDLListNode(L->curr);
+	L->curr = tmp;
+	L->nitems --;
 }
 
 /** return number of elements in a list */
