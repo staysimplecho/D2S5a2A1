@@ -246,7 +246,7 @@ void DLListBefore (DLList L, char *it)
 	L->curr->prev->next=tmp;
 	tmp->prev = L->curr->prev;
 	tmp->next = L->curr;//->next;
-	L->curr->next->prev = tmp;
+	L->curr->prev = tmp;
 	L->curr = tmp;
 
 
