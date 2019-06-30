@@ -1,0 +1,26 @@
+Results for Tests on 5000 values
+
+Depth = depth of tree, Cost = average #comparisons per search
+
+
+             Ascending Order        Prefix Order        Random Order
+Insert
+Method       Depth      Cost     Depth      Cost     Depth      Cost
+
+L         5000__   _____3123___  ____13____  ___11_____  __26______  _____14___
+
+A         ___5000_____  ___1877_____  __2954______  ___1110_____  _27_______  _____14___
+
+R         ____2581____  ___969_____  ___1801_____  ___673_____  ___32_____  _____15___
+
+B         ___206_____  ___62_____  __20______  ____13____  ____20____  ____12____
+
+S         ___5000_____  ___7_____  __5000______  ___7_____  __28______  ____6____
+
+V         ____13____  ___11_____  ____14____  ____12____  ____15____  ____11____
+
+
+Notes (what the above indicates):
+
+in summary the avl have the pretty good the result in both side. the reason for that is avl is always blance, 
+which make latter search cost much less result.

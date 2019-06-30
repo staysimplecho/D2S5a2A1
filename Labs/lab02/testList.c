@@ -22,6 +22,7 @@ int main (void)
 	test_DLListAfter(myList);
 	test_delete(myList);
 	freeDLList (myList);
+
 	return EXIT_SUCCESS;
 }
 

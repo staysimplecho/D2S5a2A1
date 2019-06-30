@@ -292,6 +292,7 @@ void DLListAfter (DLList L, char *it)
 void DLListDelete (DLList L)
 {
 	assert (L != NULL);
+	assert (DLListIsEmpty(L)==false);
 	DLListNode * tmp;
 	/// COMPLETE THIS FUNCTION
 	//if only item
