@@ -1,0 +1,72 @@
+A, L
+depth = 5000
+cost = 3114
+
+P, L
+depth = 13
+cost = 11
+
+R, L
+depth = 28
+cost = 15
+
+A, A
+depth = 5000
+cost = 1886
+
+P, A
+depth = 2954
+cost = 1114
+
+R, A
+depth = 28
+cost = 16
+
+A, R
+depth = 2492
+cost = 951
+
+P, R
+depth = 1774
+cost = 673
+
+R, R
+depth = 27
+cost = 15
+
+A, B
+depth = 206
+cost = 62
+
+P, B
+depth = 20
+cost = 13
+
+R, B
+depth = 23
+cost = 13
+
+A, S
+depth = 33
+cost = 7
+
+P, S
+depth = 29
+cost = 7
+
+R, S
+depth = 1149
+cost = 6
+
+A, V
+depth = 13
+cost = 11
+
+P, V
+depth = 14
+cost = 12
+
+R, V
+depth = 15
+cost = 11
+

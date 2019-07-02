@@ -1,0 +1,21 @@
+#!/bin/sh
+
+size=5000
+
+for insert in L A R B S V
+do
+	for order in A P R
+	do
+		
+		echo "$order, $insert"
+		plaintext=$(echo "t" | ./tlab $size $order $insert | grep "#")
+		depth=$(echo "$plaintext" | cut -d' ' -f7 | cut -d',' -f1 | sed -n -e '2p')
+		echo "depth = $depth"
+		build_c=$(echo "$plaintext" | cut -d' ' -f11 | cut -d',' -f1 | sed -n -e '1p')
+		total_c=$(echo "$plaintext" | cut -d' ' -f11 | cut -d',' -f1 | sed -n -e '2p')
+		num=$(($total_c - $build_c))
+		cost=$(($num / 6666))
+		echo "cost = $cost"
+		printf "\n"
+	done
+done > modResultes.txt
